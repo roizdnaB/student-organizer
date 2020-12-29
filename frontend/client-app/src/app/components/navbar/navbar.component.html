@@ -1,0 +1,23 @@
+<!-- Navigation bar -->
+<nav class="navbar navbar-expand-lg navbar-light">
+    <!-- Label of the navbar -->
+    <label class="navbar-brand"><b>Student Organizer</b></label>
+    <!-- Toggler for mobile devices -->
+    <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Items in the navbar -->
+    <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="navbar-item">
+                <a class="nav-link">Option1</a>
+            </li>
+            <li class="navbar-item">
+                <a class="nav-link">Option2</a>
+            </li>
+            <li class="navbar-item">
+                <a class="nav-link">Option3</a>
+            </li>
+        </ul>
+    </div>  
+</nav>

@@ -1,0 +1,14 @@
+* {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    background-color:#e27d60;
+    color:#FAEBEFFF;
+    text-align: center;
+    position: fixed;
+}
+
+p {
+    margin: 0;
+}
