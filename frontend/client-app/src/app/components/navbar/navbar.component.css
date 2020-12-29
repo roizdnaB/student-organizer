@@ -1,3 +1,26 @@
 * {
-    background-color:#e27d60;
+    background-color: #E27D60;
+}
+
+.navbar {
+    width: 100%;
+    padding: 1%;
+    color: white !important;
+}
+
+.navbar-brand {
+    color: white !important;
+    font-size: 30px;
+    padding-right: 5%;
+    margin: 0;
+}
+
+.navbar-item {
+    padding-right: 20%;
+}
+
+.nav-link {
+    color: white !important;
+    font-size: larger;
+    padding-right: 0.5%;
 }
