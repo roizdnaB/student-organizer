@@ -1,1 +1,57 @@
-<p>lecturers works!</p>
+<div class="title">LECTURERS</div>
+
+<div class="flex-container">
+    <div class="flex-item flex-form">
+        <label class="title">Add a lecturer</label>
+        <form [formGroup]="dataForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="firstName">First name</label>
+                <input type="text" placeholder="Enter the first name">
+            </div>
+        </form>
+    </div>
+    <div class="flex-item flex-table">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">First name</th>
+                    <th scope="col">Last name</th>
+                </tr>
+            </thead>
+            <!-- TEMP DATA -->
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Adam</td>
+                    <td>Nowak</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Pawel</td>
+                    <td>Koza</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Marcin</td>
+                    <td>Kowalski</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Marcin</td>
+                    <td>Kowalski</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Marcin</td>
+                    <td>Kowalski</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Marcin</td>
+                    <td>Kowalski</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
