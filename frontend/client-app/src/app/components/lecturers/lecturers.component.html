@@ -1,15 +1,48 @@
-<div class="title">LECTURERS</div>
-
 <div class="flex-container">
+    
     <div class="flex-item flex-form">
-        <label class="title">Add a lecturer</label>
+        
+        <label class="flex-item-title">Add a lecturer</label>
+        
         <form [formGroup]="dataForm" (ngSubmit)="onSubmit()">
+            
             <div class="form-group">
                 <label for="firstName">First name</label>
-                <input type="text" placeholder="Enter the first name">
+                <input type="text" placeholder="Enter the first name" class="form-control" formControlName="firstName"
+                [ngClass]="{ 'is-invalid': f.firstName.errors && f.firstName.dirty }">
+                
+                <div *ngIf="f.firstName.invalid && f.firstName.dirty" class="alert alert-danger" role="alert">
+
+                    <div *ngIf="f.firstName.errors.required" >
+                        First name is required.
+                    </div>
+
+                    <div *ngIf="f.firstName.errors.minlength">
+                        First name must be at least 3 characters long.
+                    </div>
+                </div>    
             </div>
+            
+            <div class="form-group">
+                <label for="lastName">Last name</label>
+                <input type="text" placeholder="Enter the last name" class="form-control" formControlName="lastName"
+                [ngClass]="{ 'is-invalid': f.lastName.errors && f.lastName.dirty }">
+                
+                <div *ngIf="f.lastName.invalid && f.lastName.dirty"  class="alert alert-danger" role="alert">
+
+                    <div *ngIf="f.lastName.errors.required">
+                        Last name is required.
+                    </div>
+
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg">
+                Add
+            </button>
         </form>
     </div>
+    
     <div class="flex-item flex-table">
         <table class="table">
             <thead>
@@ -17,39 +50,94 @@
                     <th scope="col">ID</th>
                     <th scope="col">First name</th>
                     <th scope="col">Last name</th>
+                    <th scope="col">Email</th>
                 </tr>
             </thead>
             <!-- TEMP DATA -->
             <tbody>
                 <tr>
+                    <th scope="row">FIRST</th>
+                    <td>Adam</td>
+                    <td>Nowak</td>
+                    <td>adam.nowak@polsl.pl</td>
+                </tr>
+                <tr>
                     <th scope="row">1</th>
                     <td>Adam</td>
                     <td>Nowak</td>
+                    <td>adam.nowak@polsl.pl</td>
                 </tr>
                 <tr>
-                    <th scope="row">2</th>
-                    <td>Pawel</td>
-                    <td>Koza</td>
+                    <th scope="row">1</th>
+                    <td>Adam</td>
+                    <td>Nowak</td>
+                    <td>adam.nowak@polsl.pl</td>
                 </tr>
                 <tr>
-                    <th scope="row">3</th>
-                    <td>Marcin</td>
-                    <td>Kowalski</td>
+                    <th scope="row">1</th>
+                    <td>Adam</td>
+                    <td>Nowak</td>
+                    <td>adam.nowak@polsl.pl</td>
                 </tr>
                 <tr>
-                    <th scope="row">3</th>
-                    <td>Marcin</td>
-                    <td>Kowalski</td>
+                    <th scope="row">1</th>
+                    <td>Adam</td>
+                    <td>Nowak</td>
+                    <td>adam.nowak@polsl.pl</td>
                 </tr>
                 <tr>
-                    <th scope="row">3</th>
-                    <td>Marcin</td>
-                    <td>Kowalski</td>
+                    <th scope="row">1</th>
+                    <td>Adam</td>
+                    <td>Nowak</td>
+                    <td>adam.nowak@polsl.pl</td>
                 </tr>
                 <tr>
-                    <th scope="row">3</th>
-                    <td>Marcin</td>
-                    <td>Kowalski</td>
+                    <th scope="row">1</th>
+                    <td>Adam</td>
+                    <td>Nowak</td>
+                    <td>adam.nowak@polsl.pl</td>
+                </tr>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Adam</td>
+                    <td>Nowak</td>
+                    <td>adam.nowak@polsl.pl</td>
+                </tr>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Adam</td>
+                    <td>Nowak</td>
+                    <td>adam.nowak@polsl.pl</td>
+                </tr>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Adam</td>
+                    <td>Nowak</td>
+                    <td>adam.nowak@polsl.pl</td>
+                </tr>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Adam</td>
+                    <td>Nowak</td>
+                    <td>adam.nowak@polsl.pl</td>
+                </tr>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Adam</td>
+                    <td>Nowak</td>
+                    <td>adam.nowak@polsl.pl</td>
+                </tr>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Adam</td>
+                    <td>Nowak</td>
+                    <td>adam.nowak@polsl.pl</td>
+                </tr>
+                <tr>
+                    <th scope="row">LAST</th>
+                    <td>Adam</td>
+                    <td>Nowak</td>
+                    <td>adam.nowak@polsl.pl</td>
                 </tr>
             </tbody>
         </table>

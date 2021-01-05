@@ -17,7 +17,8 @@ export class LecturersComponent implements OnInit {
   ngOnInit(): void {
     // build the dataForm and set validators for each field
     this.dataForm = this.formBuilder.group({
-      firstName: ['', Validators.required]
+      firstName: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
+      lastName: ['', Validators.required]
     });
   }
   // get controls of the form in html code

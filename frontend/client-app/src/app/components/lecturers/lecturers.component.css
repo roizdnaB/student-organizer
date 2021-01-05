@@ -1,33 +1,27 @@
-.title {
-    font-size: larger;
-    font-style: bold;
-    text-align: center;
-    margin-bottom: 3%;
-    margin-top: 3%;
-}
-
 .flex-container {
     display: flex;
     justify-content: space-around;
-
     padding: 0;
     margin: 0;
 }
 
 .flex-item {
-    margin-top: 10px;
-    padding: 5px;
+    padding: 10px 5px 10px 5px;
     text-align: center;
 }
 
 .flex-table {
     width: 70%;
-    background-color: aqua;
+    background-color:#6c7494;
+}
+
+.table {
+    color: white !important;
 }
 
 .flex-form {
     width: 30%;
-    background-color: rgb(129, 129, 2);
+    background-color: #947e6c;
 }
 
 /* Horizontal */
@@ -52,6 +46,7 @@
     }
 }
 
+/* Mobile */
 @media(max-width: 1000px) {
     .flex-container {
         flex-flow: column wrap;
