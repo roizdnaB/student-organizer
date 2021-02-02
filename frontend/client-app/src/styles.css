@@ -2,7 +2,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Bree Serif', serif;
+    /* font-family: 'Bree Serif', serif; */
     background-color: transparent;
 }
 
@@ -13,3 +13,5 @@ html, body {
     height: 100vh;
     background-color: transparent ;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

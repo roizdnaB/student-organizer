@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { Component, OnInit, Inject } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Lecturer } from 'src/app/models/lecturer';
 import { LecturerService } from './lecturer.service';
 import { first } from 'rxjs/operators';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { LecturersAddComponent } from './lecturers-add/lecturers-add.component';
 
 @Component({
   selector: 'app-lecturers',
@@ -11,48 +12,47 @@ import { first } from 'rxjs/operators';
   styleUrls: ['./lecturers.component.css']
 })
 export class LecturersComponent implements OnInit {
-  dataForm: FormGroup; // form group of our data fields
+  dataForm: FormGroup;
   submitted = false;
   headers = ['firstName', 'lastName', 'email'];
   lecturers: Lecturer[];
 
-
   constructor(
-    private formBuilder: FormBuilder,
-    private lecturerService: LecturerService
+    private lecturerService: LecturerService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
-
     this.loadLecturers();
+  }
 
-    this.dataForm = this.formBuilder?.group({
-      firstName: ['', Validators?.compose([Validators?.required, Validators?.minLength(3)])],
-      lastName: ['', Validators?.required]
+  openDialog(): void {
+    const dialogRef = this.dialog.open(LecturersAddComponent, {
+      width: '250px',
+      height: '400px'
     });
-  }
 
-  get f() { return this.dataForm.controls; }
 
-  onSubmit() {
-    this.submitted = true;
-
-    if (this.dataForm.invalid) {
-      return;
-    }
-    else {
-      return;
-    }
-  }
-
-  private buildEmail(): string {
-    return this.dataForm.controls.firstName.value.toString().toLowerCase() + '.' +
-      this.dataForm.controls.lastName.value.toString().toLowerCase() + '@polsl.pl';
+    dialogRef.afterClosed().subscribe(() => {
+      this.loadLecturers();
+    });
   }
 
   private loadLecturers() {
     this.lecturerService.getLecturers()
       .pipe(first())
-      .subscribe(lecturers => this.lecturers = lecturers)
+      .subscribe(lecturers => this.lecturers = lecturers);
+  }
+
+  onDelete(lecturer: Lecturer): void {
+    this.lecturerService.deleteLecturer(lecturer)
+      .pipe(first())
+      .subscribe(() => {
+        this.loadLecturers();
+      });
+  }
+
+  onEdit(): void {
+    // TODO
   }
 }

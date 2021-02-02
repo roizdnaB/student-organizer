@@ -1,47 +1,6 @@
 <div class="flex-container">
     
-    <div class="flex-item flex-form">
-        
-        <label class="flex-item-title">Add a lecturer</label>
-        
-        <form [formGroup]="dataForm" (ngSubmit)="onSubmit()">
-            
-            <div class="form-group">
-                <label for="firstName">First name</label>
-                <input type="text" placeholder="Enter the first name" class="form-control" formControlName="firstName"
-                [ngClass]="{ 'is-invalid': f.firstName.errors && f.firstName.dirty }">
-                
-                <div *ngIf="f.firstName.invalid && f.firstName.dirty" class="alert alert-danger" role="alert">
-
-                    <div *ngIf="f.firstName.errors.required" >
-                        First name is required.
-                    </div>
-
-                    <div *ngIf="f.firstName.errors.minlength">
-                        First name must be at least 3 characters long.
-                    </div>
-                </div>    
-            </div>
-            
-            <div class="form-group">
-                <label for="lastName">Last name</label>
-                <input type="text" placeholder="Enter the last name" class="form-control" formControlName="lastName"
-                [ngClass]="{ 'is-invalid': f.lastName.errors && f.lastName.dirty }">
-                
-                <div *ngIf="f.lastName.invalid && f.lastName.dirty"  class="alert alert-danger" role="alert">
-
-                    <div *ngIf="f.lastName.errors.required">
-                        Last name is required.
-                    </div>
-
-                </div>
-            </div>
-
-            <button type="submit" class="btn btn-primary btn-lg">
-                Add
-            </button>
-        </form>
-    </div>
+    <button mat-raised-button (click)="openDialog()">Add new Lecturer</button>
     
     <div class="flex-item flex-table">
         <table class="table">
@@ -56,6 +15,12 @@
                 <tr *ngFor = "let row of lecturers">
                     <td *ngFor = "let column of headers">
                         {{row[column]}}
+                    </td>
+                    <td>
+                        <button mat-fab color="primary" (click)="onEdit()">Edit</button>
+                    </td>
+                    <td>
+                        <button mat-fab color="warn" (click)="onDelete(row)">Delete</button>
                     </td>
                 </tr>
             </tbody>
