@@ -7,6 +7,9 @@ var LecturerSchema = new Schema({
     },
     lastName: {
         type: String
+    },
+    email: {
+        type: String
     }
 });
 

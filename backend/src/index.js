@@ -3,6 +3,7 @@ var express = require('express'),
     port = process.env.PORT || 3000,
     mongoose = require('mongoose'),
     Lecturer = require('./models/lecturerModel'),
+    Course = require('./models/courseModel'),
     bodyParser = require('body-parser');
 
 var cors = require('cors');
@@ -14,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 
-var routes = require('./routes/lecturers-routes');
+var routes = require('./routes/app-routes');
 routes(app);
 
 app.listen(port)
