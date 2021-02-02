@@ -1,6 +1,7 @@
-export class Class {
-    id?: number;
-    title?: string;
-    description?: string;
-    link?: string;
+export interface Class {
+    id: number;
+    lecturerId: number;
+    title: string;
+    description: string;
+    link: string;
 }

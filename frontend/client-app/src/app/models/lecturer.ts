@@ -1,5 +1,6 @@
-export class Lecturer {
-    id?: number;
-    firstName?: string;
-    lastName?: string;
+export interface Lecturer {
+    id: number;
+    firstName: string;
+    lastName: string;
+    email?: string;
 }

@@ -47,97 +47,16 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">First name</th>
-                    <th scope="col">Last name</th>
-                    <th scope="col">Email</th>
+                    <th *ngFor = "let column of headers">
+                        {{column}}
+                    </th>
                 </tr>
             </thead>
-            <!-- TEMP DATA -->
             <tbody>
-                <tr>
-                    <th scope="row">FIRST</th>
-                    <td>Adam</td>
-                    <td>Nowak</td>
-                    <td>adam.nowak@polsl.pl</td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Adam</td>
-                    <td>Nowak</td>
-                    <td>adam.nowak@polsl.pl</td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Adam</td>
-                    <td>Nowak</td>
-                    <td>adam.nowak@polsl.pl</td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Adam</td>
-                    <td>Nowak</td>
-                    <td>adam.nowak@polsl.pl</td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Adam</td>
-                    <td>Nowak</td>
-                    <td>adam.nowak@polsl.pl</td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Adam</td>
-                    <td>Nowak</td>
-                    <td>adam.nowak@polsl.pl</td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Adam</td>
-                    <td>Nowak</td>
-                    <td>adam.nowak@polsl.pl</td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Adam</td>
-                    <td>Nowak</td>
-                    <td>adam.nowak@polsl.pl</td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Adam</td>
-                    <td>Nowak</td>
-                    <td>adam.nowak@polsl.pl</td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Adam</td>
-                    <td>Nowak</td>
-                    <td>adam.nowak@polsl.pl</td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Adam</td>
-                    <td>Nowak</td>
-                    <td>adam.nowak@polsl.pl</td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Adam</td>
-                    <td>Nowak</td>
-                    <td>adam.nowak@polsl.pl</td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Adam</td>
-                    <td>Nowak</td>
-                    <td>adam.nowak@polsl.pl</td>
-                </tr>
-                <tr>
-                    <th scope="row">LAST</th>
-                    <td>Adam</td>
-                    <td>Nowak</td>
-                    <td>adam.nowak@polsl.pl</td>
+                <tr *ngFor = "let row of lecturers">
+                    <td *ngFor = "let column of headers">
+                        {{row[column]}}
+                    </td>
                 </tr>
             </tbody>
         </table>
