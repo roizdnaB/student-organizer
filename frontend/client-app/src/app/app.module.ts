@@ -15,7 +15,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { LecturersEditComponent } from './components/lecturers/lecturers-edit/lecturers-edit.component'
+import { LecturersEditComponent } from './components/lecturers/lecturers-edit/lecturers-edit.component';
+import { CoursesComponent } from './components/courses/courses.component'
+import { CoursesAddComponent } from './components/courses/courses-add/courses-add.component';
+import { CoursesEditComponent } from './components/courses/courses-edit/courses-edit.component'
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { LecturersEditComponent } from './components/lecturers/lecturers-edit/le
     FooterComponent,
     LecturersComponent,
     LecturersAddComponent,
-    LecturersEditComponent
+    LecturersEditComponent,
+    CoursesComponent,
+    CoursesAddComponent,
+    CoursesEditComponent
   ],
   imports: [
     BrowserModule,
