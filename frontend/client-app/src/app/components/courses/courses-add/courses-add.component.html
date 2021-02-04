@@ -1,1 +1,23 @@
-<p>courses-add works!</p>
+<div class="dialog">
+    <h1 mat-dialog-title>Add a new course!</h1>
+    <form [formGroup]="dataForm" (ngSubmit)="onSubmit()">
+        <div mat-dialog-content>
+            <mat-form-field>
+                <input matInput placeholder="Title" formControlName="title" required>
+                <mat-error *ngIf="dataForm.controls.title.invalid">{{getErrorMessageTitle()}}</mat-error>
+            </mat-form-field>
+    
+            <mat-form-field>
+                <input matInput placeholder="Description" formControlName="description" required>
+                <mat-error *ngIf="dataForm.controls.description.invalid">{{getErrorMessageDescription)}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Zoom link" formControlName="zoomLink" required>
+                <mat-error *ngIf="dataForm.controls.zoomLink.invalid">{{getErrorMessageZoomLink()}}</mat-error>
+            </mat-form-field>
+    
+            <button mat-raised-button cdkFocusInitial type="submit" [disabled]="!dataForm.valid" mat-dialog-close="data" color="primary">Add course</button>
+        </div>
+    </form>
+</div>

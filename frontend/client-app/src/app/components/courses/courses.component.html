@@ -1,1 +1,29 @@
-<p>courses works!</p>
+<div class="flex-container">
+    
+    <button mat-raised-button (click)="openDialogAdd()">Add new Course</button>
+    
+    <div class="flex-item flex-table">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th *ngFor = "let column of headers">
+                        {{column}}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let row of courses">
+                    <td *ngFor = "let column of headers">
+                        {{row[column]}}
+                    </td>
+                    <td>
+                        <button mat-fab color="primary" (click)="openDialogEdit(row)">Edit</button>
+                    </td>
+                    <td>
+                        <button mat-fab color="warn" (click)="onDelete(row)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
