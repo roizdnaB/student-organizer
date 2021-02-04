@@ -3,4 +3,5 @@ export interface Lecturer {
     firstName?: string;
     lastName?: string;
     email?: string;
+    courses?: string[];
 }

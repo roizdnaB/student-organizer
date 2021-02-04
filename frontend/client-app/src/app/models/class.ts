@@ -1,7 +1,6 @@
 export interface Class {
-    id: number;
-    lecturerId: number;
-    title: string;
+    _id: number;
     description: string;
-    link: string;
+    zoomLink: string;
+    lecturers: string[];
 }
