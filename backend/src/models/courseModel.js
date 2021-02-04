@@ -8,15 +8,14 @@ var CourseSchema = new Schema({
     description: {
         type: String
     },
-	zoomLink: {
-		type: String
-	},
+	  zoomLink: {
+		  type: String
+	  },
     lecturers: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Lecturers"
-      }
-    ]
+      }]
 });
 
 module.exports = mongoose.model('Courses', CourseSchema);

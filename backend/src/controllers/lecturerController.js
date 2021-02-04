@@ -1,5 +1,6 @@
 var mongoose = require('mongoose'),
     Lecturer = mongoose.model('Lecturers')
+    Course = mongoose.model('Courses')
 
 exports.getAllLecturers = function(req, res) {
     Lecturer.find({}, function(err, lecturer) {
@@ -35,6 +36,9 @@ exports.updateLecturer = function(req, res) {
 };
 
 exports.deleteLecturer = function(req, res) {
+    Lecturer.findById(req.params.lecturerId, function(err, lecturer) {
+        lecturer.courses.forEach(el => deleteLecturerOfCourse(el, lecturer));
+    });
     Lecturer.remove({
         _id: req.params.lecturerId
     }, function(err, lecturer) {
@@ -44,4 +48,8 @@ exports.deleteLecturer = function(req, res) {
     });
 };
 
-
+deleteLecturerOfCourse = function(courseId, lecturer) {
+    Course.findByIdAndUpdate(courseId,
+        { $pull: { lecturers: lecturer._id } },
+        { new: true, useFindAndModify: false }, function(err, course) {});
+};

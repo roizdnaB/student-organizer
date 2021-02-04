@@ -10,7 +10,7 @@ module.exports = function(app) {
         .get(lecturer.getLecturerById)
         .put(lecturer.updateLecturer)
         .delete(lecturer.deleteLecturer);
-
+    
     app.route('/courses')
         .get(course.getAllCourses)
         .post(course.addCourse);
