@@ -31,7 +31,7 @@ export class CoursesAddComponent implements OnInit {
 
   getErrorMessageTitle() {
     return this.dataForm.controls.title.hasError('required') ? 'You must enter a title' :
-      this.dataForm.controls.title.hasError('minlength') ?  'The title name has to be longer than 3 chars' :
+      this.dataForm.controls.title.hasError('minlength') ?  'The title has to be longer than 3 chars' :
       '';
   }
 
