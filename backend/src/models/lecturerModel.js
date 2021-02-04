@@ -10,7 +10,13 @@ var LecturerSchema = new Schema({
     },
     email: {
         type: String
-    }
+    },
+	courses: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Courses"
+      }
+    ]
 });
 
 module.exports = mongoose.model('Lecturers', LecturerSchema);

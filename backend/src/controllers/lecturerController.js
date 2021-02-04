@@ -43,3 +43,5 @@ exports.deleteLecturer = function(req, res) {
         res.json({ message: 'Lecturer successfully deleted' });
     });
 };
+
+
