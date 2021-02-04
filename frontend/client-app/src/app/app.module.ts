@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { LecturersEditComponent } from './components/lecturers/lecturers-edit/lecturers-edit.component'
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MatButtonModule } from '@angular/material/button';
     NavbarComponent,
     FooterComponent,
     LecturersComponent,
-    LecturersAddComponent
+    LecturersAddComponent,
+    LecturersEditComponent
   ],
   imports: [
     BrowserModule,

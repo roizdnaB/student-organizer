@@ -24,4 +24,8 @@ export class LecturerService {
   deleteLecturer(lecturer: Lecturer) {
     return this.http.delete<Lecturer>(this.lecturerUrl + lecturer._id);
   }
+
+  editLecturer(lecturer: Lecturer) {
+    return this.http.put<Lecturer>(this.lecturerUrl + lecturer._id, lecturer);
+  }
 }

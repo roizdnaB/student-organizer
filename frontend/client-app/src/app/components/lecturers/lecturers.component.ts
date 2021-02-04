@@ -5,6 +5,7 @@ import { LecturerService } from './lecturer.service';
 import { first } from 'rxjs/operators';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { LecturersAddComponent } from './lecturers-add/lecturers-add.component';
+import { LecturersEditComponent } from './lecturers-edit/lecturers-edit.component';
 
 @Component({
   selector: 'app-lecturers',
@@ -19,15 +20,16 @@ export class LecturersComponent implements OnInit {
 
   constructor(
     private lecturerService: LecturerService,
-    public dialog: MatDialog
+    public dialogAdd: MatDialog,
+    public dialogEdit: MatDialog
   ) { }
 
   ngOnInit(): void {
     this.loadLecturers();
   }
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(LecturersAddComponent, {
+  openDialogAdd(): void {
+    const dialogRef = this.dialogAdd.open(LecturersAddComponent, {
       width: '250px',
       height: '400px'
     });
@@ -36,6 +38,18 @@ export class LecturersComponent implements OnInit {
     dialogRef.afterClosed().subscribe(() => {
       this.loadLecturers();
     });
+  }
+
+  openDialogEdit(lecturer: Lecturer): void {
+    const dialogRef = this.dialogEdit.open(LecturersEditComponent, {
+      width: '250px',
+      height: '400px',
+      data: { eLecturer: lecturer }
+    });
+
+    dialogRef.afterClosed().subscribe(() => {
+      this.loadLecturers();
+    })
   }
 
   private loadLecturers() {
