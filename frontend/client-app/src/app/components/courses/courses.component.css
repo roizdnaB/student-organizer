@@ -8,8 +8,8 @@ h4 {
 
 #add-fab {
   position:fixed;
-  bottom:40px;
-  right:40px;
+  bottom:2rem;
+  right:2rem;
   display: none;
 	text-align:center;
 }
@@ -24,5 +24,11 @@ th {
   }
   #add-btn {
     display: none
+  }
+}
+
+@media only screen and (max-width:428px) {
+  #add-fab {
+    bottom: 4rem;
   }
 }
