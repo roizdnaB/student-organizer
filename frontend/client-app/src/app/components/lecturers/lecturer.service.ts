@@ -17,6 +17,10 @@ export class LecturerService {
     return this.http.get<Lecturer[]>(this.lecturerUrl);
   }
 
+  getLecturerById(lecturerId: string): Observable<Lecturer> {
+    return this.http.get<Lecturer>(this.lecturerUrl + lecturerId);
+  }
+
   addLecturer(newLecturer: Lecturer): Observable<Lecturer> {
     return this.http.post<Lecturer>(this.lecturerUrl, newLecturer);
   }

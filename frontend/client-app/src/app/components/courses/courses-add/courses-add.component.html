@@ -16,7 +16,15 @@
                 <input matInput placeholder="Zoom link" formControlName="zoomLink" required>
                 <mat-error *ngIf="dataForm.controls.zoomLink.invalid">{{getErrorMessageZoomLink()}}</mat-error>
             </mat-form-field>
-    
+            
+            <mat-form-field>
+                <mat-select placeholder="Select Lecturers" [formControl]="lecturersSelect" multiple required>
+                    <mat-option *ngFor="let lecturer of lecturers" [value]="lecturer">
+                        {{lecturer.firstName +  " " + lecturer.lastName}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
             <button mat-raised-button cdkFocusInitial type="submit" [disabled]="!dataForm.valid" mat-dialog-close="data" color="primary">Add course</button>
         </div>
     </form>

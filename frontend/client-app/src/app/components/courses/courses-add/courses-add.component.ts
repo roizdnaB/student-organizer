@@ -1,9 +1,12 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { first } from 'rxjs/operators';
 import { Course } from 'src/app/models/course';
+import { Lecturer } from 'src/app/models/lecturer';
+import { LecturerService } from '../../lecturers/lecturer.service';
 import { CourseService } from '../course.service';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-courses-add',
@@ -14,12 +17,15 @@ export class CoursesAddComponent implements OnInit {
 
   dataForm: FormGroup;
   course: Course = {};
+  lecturers: Lecturer[];
+  lecturersSelect = new FormControl();
 
   constructor(
     public dialogRef: MatDialogRef<CoursesAddComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Course,
     private formBuilder: FormBuilder,
-    private service: CourseService) { }
+    private service: CourseService,
+    private lecturerService: LecturerService) { }
 
   ngOnInit(): void {
     this.dataForm = this.formBuilder.group({
@@ -27,6 +33,10 @@ export class CoursesAddComponent implements OnInit {
       description: ['', Validators?.required],
       zoomLink: ['https://zoom.us/j/', Validators?.required]
     });
+
+    this.lecturerService.getLecturers()
+      .pipe(first())
+      .subscribe(lecturers => this.lecturers = lecturers);
   }
 
   getErrorMessageTitle() {
@@ -52,6 +62,12 @@ export class CoursesAddComponent implements OnInit {
       this.course.description = this.dataForm.controls.description.value.toString();
       this.course.zoomLink = this.dataForm.controls.zoomLink.value.toString();
 
+      var lecturerIds: string[] = [];
+      this.lecturersSelect.value.forEach(el => {
+        lecturerIds.push(el._id);
+      });
+      this.course.lecturers = lecturerIds;
+
       this.dataForm.reset();
 
       this.data = this.course;
@@ -61,5 +77,4 @@ export class CoursesAddComponent implements OnInit {
         .subscribe(() => {});
     }
   }
-
 }

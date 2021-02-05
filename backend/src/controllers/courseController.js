@@ -29,9 +29,13 @@ exports.getCourseById = function(req, res) {
 };
     
 exports.updateCourse = function(req, res) {
+    Course.findById(req.params.courseId, function(err, course) {
+        course.lecturers.forEach(el => deleteCourseOfLecturer(el, course));
+    });
     Course.findOneAndUpdate({_id: req.params.courseId}, req.body, {new: true}, function(err, course) {
         if (err)
             res.send(err);
+        course.lecturers.forEach(el => addCourseToLecturer(el, course));
         res.json(course);
     });
 };

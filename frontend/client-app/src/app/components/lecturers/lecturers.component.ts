@@ -7,6 +7,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { LecturersAddComponent } from './lecturers-add/lecturers-add.component';
 import { LecturersEditComponent } from './lecturers-edit/lecturers-edit.component';
 
+
 @Component({
   selector: 'app-lecturers',
   templateUrl: './lecturers.component.html',

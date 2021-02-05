@@ -1,9 +1,11 @@
 
   import { Component, Inject, OnInit } from '@angular/core';
-  import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+  import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
   import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   import { first } from 'rxjs/operators';
   import { Course } from 'src/app/models/course';
+import { Lecturer } from 'src/app/models/lecturer';
+import { LecturerService } from '../../lecturers/lecturer.service';
   import { CourseService } from '../course.service';
 
 @Component({
@@ -15,12 +17,16 @@ export class CoursesEditComponent implements OnInit {
 
   dataForm: FormGroup;
   course: Course = {};
+  lecturers: Lecturer[] = [];
+  selectedLecturers: Lecturer[] = [];
+  lecturersSelect = new FormControl();
 
   constructor(
     public dialogRef: MatDialogRef<CoursesEditComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { eCourse: Course },
     private formBuilder: FormBuilder,
-    private service: CourseService) { }
+    private service: CourseService,
+    private lecturerService: LecturerService) { }
 
   ngOnInit(): void {
     this.dataForm = this.formBuilder.group({
@@ -32,6 +38,10 @@ export class CoursesEditComponent implements OnInit {
     this.dataForm.controls.title.setValue(this.data.eCourse.title);
     this.dataForm.controls.description.setValue(this.data.eCourse.description);
     this.dataForm.controls.zoomLink.setValue(this.data.eCourse.zoomLink);
+
+    this.lecturerService.getLecturers()
+      .pipe(first())
+      .subscribe(lecturers => this.lecturers = lecturers);
   }
 
   getErrorMessageTitle() {
@@ -57,6 +67,12 @@ export class CoursesEditComponent implements OnInit {
       this.course.title = this.dataForm.controls.title.value.toString();
       this.course.description = this.dataForm.controls.description.value.toString();
       this.course.zoomLink = this.dataForm.controls.zoomLink.value.toString();
+
+      var lecturerIds: string[] = [];
+      this.lecturersSelect.value.forEach(el => {
+        lecturerIds.push(el._id);
+      });
+      this.course.lecturers = lecturerIds;
 
       this.dataForm.reset();
 

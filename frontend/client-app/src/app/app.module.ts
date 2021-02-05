@@ -19,7 +19,7 @@ import { LecturersEditComponent } from './components/lecturers/lecturers-edit/le
 import { CoursesComponent } from './components/courses/courses.component'
 import { CoursesAddComponent } from './components/courses/courses-add/courses-add.component';
 import { CoursesEditComponent } from './components/courses/courses-edit/courses-edit.component'
-
+import { MatSelectModule } from '@angular/material/select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,11 +42,13 @@ import { CoursesEditComponent } from './components/courses/courses-edit/courses-
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSelectModule
   ],
   exports: [
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
