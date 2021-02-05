@@ -11,6 +11,11 @@
                 <input matInput placeholder="Last name" formControlName="lastName" required>
                 <mat-error *ngIf="dataForm.controls.lastName.invalid">{{getErrorMessageLastName()}}</mat-error>
             </mat-form-field>
+
+            <button mat-raised-button type="button" data-bs-toggle="#course-list" data-bs-target="collapse" aria-expanded="false" aria-controls="course-list">Select Courses</button>
+            <div class="collapse" id="course-list">
+                <p>Hej ho tu są kursy</p>
+            </div>
     
             <button mat-raised-button cdkFocusInitial type="submit" [disabled]="!dataForm.valid" mat-dialog-close="data" color="primary">Add lecturer</button>
         </div>
