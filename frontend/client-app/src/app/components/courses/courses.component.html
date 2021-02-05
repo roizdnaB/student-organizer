@@ -1,6 +1,6 @@
 <div class="flex-container">
     
-    <button mat-raised-button (click)="openDialogAdd()">Add new Course</button>
+    <button mat-raised-button (click)="openDialogAdd()" id="add-btn">Add new Course</button>
     
     <div class="flex-item flex-table">
         <table class="table">
@@ -13,7 +13,7 @@
             </thead>
             <tbody>
                 <tr *ngFor = "let row of courses">
-                    <td *ngFor = "let column of headers">
+                    <td *ngFor = "let column of headers;">
                         {{row[column]}}
                     </td>
                     <td>
@@ -24,6 +24,9 @@
                     </td>
                 </tr>
             </tbody>
+            <button mat-fab color="main" id="add-fab" (click)="openDialogAdd()">
+                <mat-icon>add</mat-icon>
+            </button>
         </table>
     </div>
 </div>

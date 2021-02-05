@@ -1,6 +1,6 @@
 <div class="flex-container">
     
-    <button mat-raised-button (click)="openDialogAdd()">Add new Lecturer</button>
+    <button mat-raised-button (click)="openDialogAdd()" id="add-btn">Add new Lecturer</button>
     
     <div class="flex-item flex-table">
         <table class="table">
@@ -24,6 +24,9 @@
                     </td>
                 </tr>
             </tbody>
+            <button mat-fab color="main" id="add-fab" (click)="openDialogAdd()">
+                <mat-icon>add</mat-icon>
+            </button>            
         </table>
     </div>
 </div>
