@@ -16,6 +16,7 @@ export class LecturersComponent implements OnInit {
   dataForm: FormGroup;
   submitted = false;
   headers = ['firstName', 'lastName', 'email'];
+  labels = ['First Name', 'Last Name', "E-Mail"];
   lecturers: Lecturer[];
 
   constructor(

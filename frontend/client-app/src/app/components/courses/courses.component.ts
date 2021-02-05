@@ -17,6 +17,7 @@ export class CoursesComponent implements OnInit {
   dataForm: FormGroup;
   submitted = false;
   headers = ['title', 'description', 'zoomLink'];
+  labels = ['Title', 'Description', 'Meeting URL']
   courses: Course[];
 
   constructor(
