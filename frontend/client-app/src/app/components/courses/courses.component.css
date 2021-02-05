@@ -8,14 +8,13 @@ h4 {
 
 #add-fab {
   position:fixed;
-  width:60px;
-  height:60px;
   bottom:40px;
   right:40px;
   display: none;
+	text-align:center;
 }
 
-td {
+th {
   white-space: nowrap;
 }
 

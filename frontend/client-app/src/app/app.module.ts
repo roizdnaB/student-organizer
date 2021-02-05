@@ -20,6 +20,7 @@ import { CoursesComponent } from './components/courses/courses.component'
 import { CoursesAddComponent } from './components/courses/courses-add/courses-add.component';
 import { CoursesEditComponent } from './components/courses/courses-edit/courses-edit.component'
 import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatSelectModule
+    MatSelectModule,
+    MatIconModule
   ],
   exports: [
     MatFormFieldModule,
