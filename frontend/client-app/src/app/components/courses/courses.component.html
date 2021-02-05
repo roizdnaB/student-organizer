@@ -14,8 +14,14 @@
             </thead>
             <tbody>
                 <tr *ngFor = "let row of courses">
-                    <td *ngFor = "let column of headers;">
-                        {{row[column]}}
+                    <td>
+                        {{row.title}}
+                    </td>
+                    <td>
+                        {{row.description}}
+                    </td>
+                    <td>
+                        <a href="{{row.zoomLink}}"><button mat-fab style="background-color: #00d9d2;"><mat-icon>videocam</mat-icon></button></a>
                     </td>
                     <td>
                         <button mat-fab color="primary" (click)="openDialogEdit(row)"><mat-icon>edit</mat-icon></button>
