@@ -6,6 +6,8 @@ import { first } from 'rxjs/operators';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CoursesAddComponent } from './courses-add/courses-add.component';
 import { CoursesEditComponent } from './courses-edit/courses-edit.component';
+import { LecturerService } from '../lecturers/lecturer.service';
+import { Lecturer } from 'src/app/models/lecturer';
 
 @Component({
   selector: 'app-courses',
@@ -17,14 +19,21 @@ export class CoursesComponent implements OnInit {
   dataForm: FormGroup;
   submitted = false;
   headers = ['title', 'description', 'zoomLink'];
-  labels = ['Title', 'Description', 'Meeting URL']
+  labels = ['Title', 'Description', 'Meeting URL', 'Lecturers']
   courses: Course[];
+  lecturers: Lecturer[];
 
   constructor(
     private courseService: CourseService,
+    private lecturerService: LecturerService,
     public dialogAdd: MatDialog,
     public dialogEdit: MatDialog
-  ) { }
+  ) { 
+
+    this.lecturerService.getLecturers()
+      .pipe(first())
+      .subscribe(lecturers => this.lecturers = lecturers);
+  }
 
   ngOnInit(): void {
     this.loadCourses();
@@ -68,8 +77,16 @@ export class CoursesComponent implements OnInit {
       });
   }
 
-  onEdit(): void {
-    // TODO
-  }
+  prepareLecturersData(lecturerIds: string[]): string[] {
 
+    var result: string[] = [];
+
+    lecturerIds.forEach(id => {
+      var foundLecturer = this.lecturers.find(lec => lec._id == id);
+      result.push(foundLecturer.firstName + " " + foundLecturer.lastName);
+    })
+
+
+    return result
+  }
 }

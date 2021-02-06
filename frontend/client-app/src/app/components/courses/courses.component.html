@@ -24,6 +24,9 @@
                         <a href="{{row.zoomLink}}"><button mat-fab style="background-color: #00d9d2;"><mat-icon>videocam</mat-icon></button></a>
                     </td>
                     <td>
+                        {{prepareLecturersData(row.lecturers)}}
+                    </td>
+                    <td>
                         <button mat-fab color="primary" (click)="openDialogEdit(row)"><mat-icon>edit</mat-icon></button>
                     </td>
                     <td>
